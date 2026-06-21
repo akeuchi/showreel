@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Atlas — 大语言模型全景图</title>
+  <meta name="description" content="探索主流大语言模型的能力边界与擅长方向">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav__back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>
+      </svg>
+      Showreel
+    </a>
+    <div class="nav__brand">
+      <div class="nav__brand-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      LLM Atlas
+    </div>
+    <ul class="nav__links">
+      <li><a href="#models" class="active">模型</a></li>
+      <li><a href="#comparison">对比</a></li>
+      <li><a href="#use-cases">场景</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="hero__label">2026 · 大语言模型全景</div>
+    <h1 class="hero__title">
+      探索 AI 的<br><span>能力边界</span>
+    </h1>
+    <p class="hero__subtitle">
+      从推理到创作，从代码到多模态——<br>
+      主流大语言模型的擅长领域与选型指南
+    </p>
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <div class="hero__stat-value">30</div>
+        <div class="hero__stat-label">主流模型</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-value">6</div>
+        <div class="hero__stat-label">能力维度</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-value">实时</div>
+        <div class="hero__stat-label">持续更新</div>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>向下探索</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============ Models Section ============ -->
+  <section id="models" class="section">
+    <div class="section__header fade-up">
+      <div class="section__label">Models</div>
+      <h2 class="section__title">主流大语言模型</h2>
+      <p class="section__desc">覆盖推理、编程、多模态、多语言等核心能力维度，点击模型卡片查看详细信息</p>
+    </div>
+
+    <div class="filter-bar fade-up">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="reasoning">推理</button>
+      <button class="filter-btn" data-filter="coding">编程</button>
+      <button class="filter-btn" data-filter="multimodal">多模态</button>
+      <button class="filter-btn" data-filter="multilingual">多语言</button>
+      <button class="filter-btn" data-filter="opensource">开源</button>
+    </div>
+
+    <div class="models-grid" id="modelsGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============ Comparison Section ============ -->
+  <section id="comparison" class="section">
+    <div class="section__header fade-up">
+      <div class="section__label">Comparison</div>
+      <h2 class="section__title">能力对比</h2>
+      <p class="section__desc">各模型在核心维度上的相对表现，基于公开基准测试与社区共识</p>
+    </div>
+
+    <div style="overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-lg);">
+      <table class="strengths-table" id="comparisonTable">
+        <thead>
+          <tr>
+            <th style="min-width:160px">模型</th>
+            <th>推理</th>
+            <th>编程</th>
+            <th>多模态</th>
+            <th>多语言</th>
+            <th>速度</th>
+            <th>上下文</th>
+          </tr>
+        </thead>
+        <tbody id="comparisonBody">
+          <!-- Rows injected by JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============ Use Cases Section ============ -->
+  <section id="use-cases" class="section">
+    <div class="section__header fade-up">
+      <div class="section__label">Use Cases</div>
+      <h2 class="section__title">场景选型指南</h2>
+      <p class="section__desc">根据你的核心需求，选择最合适的模型</p>
+    </div>
+
+    <div class="use-cases-grid" id="useCasesGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer__text">
+      LLM Atlas — 数据来源于公开基准测试与官方文档
+    </p>
+    <p class="footer__note">
+      无法核实的数据以 "--" 标注 · 各模型能力持续演进，仅供参考
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
