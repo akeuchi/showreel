@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIANIME — AI 漫剧创作公司</title>
+  <meta name="description" content="AIANIME 是一家以人工智能技术驱动漫剧创作的科技公司，提供 AI 漫画生成、动画制作、剧本创作、角色设计、配音合成与后期特效等全流程服务。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 星空粒子背景 -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <!-- 网格纹理叠加 -->
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- 顶部导航 -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../../index.html" class="nav__back" aria-label="返回 Showreel">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>
+        </svg>
+        <span>Showreel</span>
+      </a>
+      <a href="#home" class="nav__logo" aria-label="AIANIME 首页">
+        <svg class="nav__logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M16 8L22 11.5V18.5L16 22L10 18.5V11.5L16 8Z" fill="currentColor" opacity="0.3"/>
+          <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+        </svg>
+        <span class="nav__logo-text">AIANIME</span>
+      </a>
+
+      <nav class="nav__menu" id="navMenu" aria-label="主导航">
+        <a href="#home" class="nav__link is-active">首页</a>
+        <a href="#about" class="nav__link">关于我们</a>
+        <a href="#services" class="nav__link">服务介绍</a>
+        <a href="#works" class="nav__link">作品展示</a>
+        <a href="#contact" class="nav__link">联系我们</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 移动端抽屉菜单 -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#home" class="mobile-menu__link">首页</a>
+    <a href="#about" class="mobile-menu__link">关于我们</a>
+    <a href="#services" class="mobile-menu__link">服务介绍</a>
+    <a href="#works" class="mobile-menu__link">作品展示</a>
+    <a href="#contact" class="mobile-menu__link">联系我们</a>
+  </div>
+
+  <main>
+
+    <!-- ============ 首页英雄区 ============ -->
+    <section id="home" class="hero">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <div class="hero__tag reveal">
+            <span class="hero__tag-dot"></span>
+            <span>// AI POWERED COMIC STUDIO</span>
+          </div>
+          <h1 class="hero__title reveal" data-delay="1">
+            用 AI 重塑<br><span class="hero__title-accent">漫剧创作</span>
+          </h1>
+          <p class="hero__desc reveal" data-delay="2">
+            AIANIME 融合人工智能与创意艺术，以全流程 AI 技术重新定义漫画与动画的生产方式。从剧本到成片，让每一个故事都拥有无限可能。
+          </p>
+          <div class="hero__actions reveal" data-delay="3">
+            <a href="#works" class="btn btn--primary">
+              <span>查看作品</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#contact" class="btn btn--ghost">联系我们</a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal" data-delay="2">
+          <div class="hero__frame">
+            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Futuristic%20AI%20comic%20creation%20studio%20interface%2C%20holographic%20manga%20panels%20floating%20in%20dark%20space%2C%20cyan%20and%20electric%20blue%20neon%20glow%2C%20digital%20art%20workspace%2C%20sci-fi%20atmosphere%2C%20minimalist%20high-tech&image_size=landscape_16_9" alt="AI 漫剧创作工作台" loading="eager">
+            <div class="hero__frame-corners">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="hero__frame-scan"></div>
+          </div>
+          <div class="hero__badge">
+            <span class="hero__badge-label">SYSTEM</span>
+            <span class="hero__badge-value">ONLINE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>SCROLL</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ============ 核心数据 ============ -->
+    <section class="stats" aria-label="核心数据">
+      <div class="stats__inner">
+        <div class="stat reveal">
+          <div class="stat__number" data-target="520">0</div>
+          <div class="stat__unit">+</div>
+          <div class="stat__label">已发布作品</div>
+        </div>
+        <div class="stat reveal" data-delay="1">
+          <div class="stat__number" data-target="128">0</div>
+          <div class="stat__unit">+</div>
+          <div class="stat__label">合作品牌</div>
+        </div>
+        <div class="stat reveal" data-delay="2">
+          <div class="stat__number" data-target="98">0</div>
+          <div class="stat__unit">%</div>
+          <div class="stat__label">客户满意度</div>
+        </div>
+        <div class="stat reveal" data-delay="3">
+          <div class="stat__number" data-target="72">0</div>
+          <div class="stat__unit">H</div>
+          <div class="stat__label">平均交付时长</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 关于我们 ============ -->
+    <section id="about" class="section about">
+      <div class="section__inner">
+        <div class="section-header reveal">
+          <span class="section-label">// 01 — ABOUT US</span>
+          <h2 class="section-title">关于 <span>AIANIME</span></h2>
+        </div>
+
+        <div class="about__content">
+          <div class="about__text reveal">
+            <p class="about__lead">
+              我们是一家以人工智能为核心驱动力的漫剧创作公司，致力于将前沿 AI 技术与叙事艺术深度融合。
+            </p>
+            <p class="about__body">
+              AIANIME 成立于 2024 年，总部位于深圳。公司汇聚了 AI 算法工程师、漫画家、动画导演与编剧人才，自主研发了从剧本生成、角色设计、分镜构图到动画合成的一站式 AI 漫剧生产平台。我们相信，技术不应取代创意，而应释放创意——让每一个好故事都能以最高的效率、最低的成本被看见。
+            </p>
+            <div class="about__signature">
+              <span class="about__signature-line"></span>
+              <span class="about__signature-text">TECH × STORY × ART</span>
+            </div>
+          </div>
+          <div class="about__visual reveal" data-delay="1">
+            <div class="about__visual-frame">
+              <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Abstract%20AI%20neural%20network%20merging%20with%20comic%20art%20illustration%2C%20dark%20background%20with%20glowing%20cyan%20particles%2C%20futuristic%20creative%20technology%20visualization%2C%20digital%20art&image_size=landscape_4_3" alt="AI 创意技术可视化" loading="lazy">
+              <div class="about__visual-corners">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 愿景使命价值观 -->
+        <div class="about__values">
+          <div class="value-card reveal">
+            <div class="value-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="value-card__title">愿景</h3>
+            <p class="value-card__desc">成为全球领先的 AI 漫剧内容平台，让创作不再有门槛。</p>
+          </div>
+          <div class="value-card reveal" data-delay="1">
+            <div class="value-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="value-card__title">使命</h3>
+            <p class="value-card__desc">用 AI 释放创意生产力，让每一个故事都能被高效讲述。</p>
+          </div>
+          <div class="value-card reveal" data-delay="2">
+            <div class="value-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="value-card__title">价值观</h3>
+            <p class="value-card__desc">技术驱动、创意为本、效率至上、品质为先。</p>
+          </div>
+        </div>
+
+        <!-- 发展历程时间轴 -->
+        <div class="timeline">
+          <div class="timeline__line"></div>
+          <div class="timeline__item reveal">
+            <div class="timeline__node"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">2024.03</span>
+              <h4 class="timeline__title">公司成立</h4>
+              <p class="timeline__desc">AIANIME 在深圳正式成立，完成首轮融资。</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal" data-side="right">
+            <div class="timeline__node"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">2024.08</span>
+              <h4 class="timeline__title">AI 引擎 v1.0</h4>
+              <p class="timeline__desc">自研漫剧生成引擎上线，支持剧本到分镜的全流程自动化。</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__node"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">2025.01</span>
+              <h4 class="timeline__title">首批作品发布</h4>
+              <p class="timeline__desc">三部原创 AI 漫剧在主流平台上线，累计播放破千万。</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal" data-side="right">
+            <div class="timeline__node"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">2025.09</span>
+              <h4 class="timeline__title">全球化布局</h4>
+              <p class="timeline__desc">开启海外业务，作品进入东南亚与北美市场。</p>
+            </div>
+          </div>
+          <div class="timeline__item reveal">
+            <div class="timeline__node"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">2026.06</span>
+              <h4 class="timeline__title">AI 引擎 v3.0</h4>
+              <p class="timeline__desc">第三代引擎支持实时交互式创作，产能提升 400%。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 服务介绍 ============ -->
+    <section id="services" class="section services">
+      <div class="section__inner">
+        <div class="section-header reveal">
+          <span class="section-label">// 02 — SERVICES</span>
+          <h2 class="section-title">核心 <span>服务</span></h2>
+          <p class="section-subtitle">从创意到成片，AIANIME 提供漫剧全流程一站式服务</p>
+        </div>
+
+        <div class="services__grid">
+          <article class="service-card reveal">
+            <div class="service-card__num">01</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3 class="service-card__title">AI 漫画生成</h3>
+            <p class="service-card__desc">基于自研扩散模型，输入文字描述即可生成高质量漫画分镜与画面，支持多种画风自由切换。</p>
+            <ul class="service-card__tags">
+              <li>多画风</li><li>高分辨率</li><li>角色一致性</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal" data-delay="1">
+            <div class="service-card__num">02</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="service-card__title">动画制作</h3>
+            <p class="service-card__desc">将静态漫画转化为流畅动画，AI 自动生成中间帧与镜头运动，大幅缩短动画制作周期。</p>
+            <ul class="service-card__tags">
+              <li>自动补帧</li><li>镜头运镜</li><li>4K 输出</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal" data-delay="2">
+            <div class="service-card__num">03</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="1.5"/><path d="M14 2v6h6M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="service-card__title">剧本创作</h3>
+            <p class="service-card__desc">智能剧本引擎辅助编剧创作，提供情节推演、角色塑造与对白生成，激发无限创意灵感。</p>
+            <ul class="service-card__tags">
+              <li>情节推演</li><li>多类型</li><li>多语言</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-card__num">04</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 21v-2a6 6 0 016-6h4a6 6 0 016 6v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="service-card__title">角色设计</h3>
+            <p class="service-card__desc">AI 辅助角色形象设计，从概念草图到三视图自动生成，确保角色在多场景下的视觉一致性。</p>
+            <ul class="service-card__tags">
+              <li>三视图</li><li>表情库</li><li>风格定制</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal" data-delay="1">
+            <div class="service-card__num">05</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="currentColor" stroke-width="1.5"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="service-card__title">配音合成</h3>
+            <p class="service-card__desc">AI 语音合成技术为角色赋予自然生动的声音，支持多语种、多音色，情感表达真实细腻。</p>
+            <ul class="service-card__tags">
+              <li>多音色</li><li>情感语音</li><li>20+ 语种</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal" data-delay="2">
+            <div class="service-card__num">06</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="service-card__title">后期特效</h3>
+            <p class="service-card__desc">智能后期合成与特效制作，自动调色、光效生成与音画同步，呈现影院级视觉品质。</p>
+            <ul class="service-card__tags">
+              <li>智能调色</li><li>光效生成</li><li>音画同步</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 作品展示 ============ -->
+    <section id="works" class="section works">
+      <div class="section__inner">
+        <div class="section-header reveal">
+          <span class="section-label">// 03 — WORKS</span>
+          <h2 class="section-title">作品 <span>展示</span></h2>
+          <p class="section-subtitle">精选 AI 漫剧作品案例，涵盖多种题材与风格</p>
+        </div>
+
+        <div class="works__filter reveal">
+          <button class="filter-btn is-active" data-filter="all">全部</button>
+          <button class="filter-btn" data-filter="cyber">赛博朋克</button>
+          <button class="filter-btn" data-filter="fantasy">奇幻</button>
+          <button class="filter-btn" data-filter="scifi">科幻</button>
+          <button class="filter-btn" data-filter="drama">剧情</button>
+        </div>
+
+        <div class="works__grid">
+          <article class="work-card reveal" data-category="cyber">
+            <div class="work-card__media">
+              <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cyberpunk%20manga%20cover%20art%2C%20neon%20city%20night%2C%20female%20protagonist%20with%20glowing%20eyes%2C%20dark%20sci-fi%20atmosphere%2C%20detailed%20illustration&image_size=portrait_4_3" alt="霓虹纪元" loading="lazy">
+              <div class="work-card__overlay">
+                <span class="work-card__type">赛博朋克</span>
+                <div class="work-card__info">
+                  <h3 class="work-card__title">霓虹纪元</h3>
+                  <p class="work-card__desc">2087 年，一名黑客在霓虹都市中揭开记忆篡改的阴谋。</p>
+                  <span class="work-card__link">查看详情 →</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-delay="1" data-category="scifi">
+            <div class="work-card__media">
+              <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Space%20opera%20comic%20cover%2C%20giant%20spaceship%20in%20deep%20space%2C%20stars%20and%20nebula%2C%20futuristic%20hero%20silhouette%2C%20epic%20sci-fi&image_size=portrait_4_3" alt="星海远征" loading="lazy">
+              <div class="work-card__overlay">
+                <span class="work-card__type">科幻</span>
+                <div class="work-card__info">
+                  <h3 class="work-card__title">星海远征</h3>
+                  <p class="work-card__desc">人类舰队穿越虫洞，在未知星系寻找新家园的史诗旅程。</p>
+                  <span class="work-card__link">查看详情 →</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-delay="2" data-category="fantasy">
+            <div class="work-card__media">
+              <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Dark%20fantasy%20manga%20cover%2C%20mystical%20warrior%20with%20glowing%20runes%2C%20ancient%20ruins%2C%20magical%20atmosphere%2C%20detailed%20illustration&image_size=portrait_4_3" alt="符文之誓" loading="lazy">
+              <div class="work-card__overlay">
+                <span class="work-card__type">奇幻</span>
+                <div class="work-card__info">
+                  <h3 class="work-card__title">符文之誓</h3>
+                  <p class="work-card__desc">古老符文苏醒，少年踏上守护两个世界平衡的征途。</p>
+                  <span class="work-card__link">查看详情 →</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-category="scifi">
+            <div class="work-card__media">
+              <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Mecha%20anime%20cover%20art%2C%20giant%20robot%20battle%20scene%2C%20explosions%2C%20futuristic%20city%20background%2C%20dramatic%20lighting&image_size=portrait_4_3" alt="机甲黎明" loading="lazy">
+              <div class="work-card__overlay">
+                <span class="work-card__type">科幻</span>
+                <div class="work-card__info">
+                  <h3 class="work-card__title">机甲黎明</h3>
+                  <p class="work-card__desc">末日之后，少年驾驶员与机甲共同守护人类最后的城邦。</p>
+                  <span class="work-card__link">查看详情 →</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-delay="1" data-category="drama">
+            <div class="work-card__media">
+              <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Post-apocalyptic%20comic%20cover%2C%20lone%20survivor%20in%20ruined%20city%2C%20dramatic%20sunset%2C%20melancholic%20atmosphere%2C%20detailed%20art&image_size=portrait_4_3" alt="余烬之诗" loading="lazy">
+              <div class="work-card__overlay">
+                <span class="work-card__type">剧情</span>
+                <div class="work-card__info">
+                  <h3 class="work-card__title">余烬之诗</h3>
+                  <p class="work-card__desc">废墟之上，一位诗人用文字点燃文明最后的火光。</p>
+                  <span class="work-card__link">查看详情 →</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="work-card reveal" data-delay="2" data-category="fantasy">
+            <div class="work-card__media">
+              <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Supernatural%20manga%20cover%2C%20spirits%20and%20ghosts%20in%20dark%20forest%2C%20mystical%20atmosphere%2C%20ethereal%20lighting%2C%20detailed%20illustration&image_size=portrait_4_3" alt="百鬼夜行" loading="lazy">
+              <div class="work-card__overlay">
+                <span class="work-card__type">奇幻</span>
+                <div class="work-card__info">
+                  <h3 class="work-card__title">百鬼夜行</h3>
+                  <p class="work-card__desc">现代都市与古老妖怪世界交织，少女阴阳师的觉醒之路。</p>
+                  <span class="work-card__link">查看详情 →</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 联系我们 ============ -->
+    <section id="contact" class="section contact">
+      <div class="section__inner">
+        <div class="section-header reveal">
+          <span class="section-label">// 04 — CONTACT</span>
+          <h2 class="section-title">联系 <span>我们</span></h2>
+          <p class="section-subtitle">有合作意向或想了解更多？欢迎随时与我们交流</p>
+        </div>
+
+        <div class="contact__content">
+          <div class="contact__info reveal">
+            <div class="contact__info-item">
+              <div class="contact__info-icon">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 7l10 6 10-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <div class="contact__info-label">邮箱</div>
+                <div class="contact__info-value">2152862616@qq.com</div>
+              </div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-icon">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div class="contact__info-label">电话</div>
+                <div class="contact__info-value">000 0000 0000</div>
+              </div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-icon">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <div>
+                <div class="contact__info-label">地址</div>
+                <div class="contact__info-value">深圳市南山区科技园南区 AI 大厦 28F</div>
+              </div>
+            </div>
+
+            <div class="contact__social">
+              <a href="#" class="contact__social-link" aria-label="微博">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 14s1 2 4 2 4-2 4-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="11" r="0.5" fill="currentColor"/><circle cx="15" cy="11" r="0.5" fill="currentColor"/></svg>
+              </a>
+              <a href="#" class="contact__social-link" aria-label="微信">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="#" class="contact__social-link" aria-label="B站">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 3l3 3M16 3l-3 3M9 13v2M15 13v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </a>
+              <a href="#" class="contact__social-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact__form reveal" data-delay="1" id="contactForm" novalidate>
+            <div class="form__group">
+              <label class="form__label" for="name">姓名</label>
+              <input class="form__input" type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="email">邮箱</label>
+              <input class="form__input" type="email" id="email" name="email" placeholder="请输入您的邮箱" required>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="type">需求类型</label>
+              <select class="form__input form__select" id="type" name="type">
+                <option value="">请选择需求类型</option>
+                <option value="comic">漫画创作</option>
+                <option value="animation">动画制作</option>
+                <option value="script">剧本创作</option>
+                <option value="character">角色设计</option>
+                <option value="other">其他合作</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="message">留言</label>
+              <textarea class="form__input form__textarea" id="message" name="message" placeholder="请描述您的需求或合作意向" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary form__submit">
+              <span>发送消息</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="form__status" id="formStatus" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#home" class="footer__logo">
+            <svg class="nav__logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M16 8L22 11.5V18.5L16 22L10 18.5V11.5L16 8Z" fill="currentColor" opacity="0.3"/>
+              <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+            </svg>
+            <span>AIANIME</span>
+          </a>
+          <p class="footer__desc">用 AI 重塑漫剧创作，让每一个故事都拥有无限可能。</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4 class="footer__col-title">导航</h4>
+            <a href="#home">首页</a>
+            <a href="#about">关于我们</a>
+            <a href="#services">服务介绍</a>
+            <a href="#works">作品展示</a>
+            <a href="#contact">联系我们</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">服务</h4>
+            <a href="#services">AI 漫画生成</a>
+            <a href="#services">动画制作</a>
+            <a href="#services">剧本创作</a>
+            <a href="#services">角色设计</a>
+            <a href="#services">后期特效</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 AIANIME. All rights reserved.</span>
+        <a href="../../index.html" class="footer__back">← 返回 Showreel</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
