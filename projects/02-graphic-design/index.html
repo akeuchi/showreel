@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STUDIO FORM — 平面设计工作室</title>
+  <meta name="description" content="STUDIO FORM 是一家专注于品牌识别、海报设计与编辑排版的独立平面设计工作室">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ Loader ============ -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <div class="loader__count" id="loaderCount">0</div>
+      <div class="loader__label">STUDIO FORM</div>
+    </div>
+    <div class="loader__bar"><div class="loader__bar-fill" id="loaderBar"></div></div>
+  </div>
+
+  <!-- ============ Custom Cursor ============ -->
+  <div class="cursor" id="cursor">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring" id="cursorRing"></div>
+  </div>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav" id="nav">
+    <a href="../../index.html" class="nav__back" data-cursor="hover">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>
+      </svg>
+      <span>Showreel</span>
+    </a>
+    <a href="#top" class="nav__logo" data-cursor="hover">
+      <span class="nav__logo-mark">●</span>
+      STUDIO FORM
+    </a>
+    <button class="nav__toggle" id="navToggle" data-cursor="hover" aria-label="菜单">
+      <span class="nav__toggle-text" id="navToggleText">菜单</span>
+      <span class="nav__toggle-icon">
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </nav>
+
+  <!-- ============ Menu Overlay ============ -->
+  <div class="menu" id="menu">
+    <div class="menu__inner">
+      <nav class="menu__nav">
+        <a href="#top" class="menu__link" data-cursor="hover"><span class="menu__link-num">01</span><span class="menu__link-text">首页</span></a>
+        <a href="#works" class="menu__link" data-cursor="hover"><span class="menu__link-num">02</span><span class="menu__link-text">作品</span></a>
+        <a href="#about" class="menu__link" data-cursor="hover"><span class="menu__link-num">03</span><span class="menu__link-text">关于</span></a>
+        <a href="#services" class="menu__link" data-cursor="hover"><span class="menu__link-num">04</span><span class="menu__link-text">服务</span></a>
+        <a href="#contact" class="menu__link" data-cursor="hover"><span class="menu__link-num">05</span><span class="menu__link-text">联系</span></a>
+      </nav>
+      <div class="menu__footer">
+        <div class="menu__col">
+          <div class="menu__col-label">联系</div>
+          <a href="mailto:hello@studioform.design" data-cursor="hover">hello@studioform.design</a>
+          <a href="tel:+8613800000000" data-cursor="hover">+86 138 0000 0000</a>
+        </div>
+        <div class="menu__col">
+          <div class="menu__col-label">社交</div>
+          <a href="#" data-cursor="hover">Instagram</a>
+          <a href="#" data-cursor="hover">Behance</a>
+          <a href="#" data-cursor="hover">站酷</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="hero__meta">
+        <span class="hero__meta-item">EST. 2019</span>
+        <span class="hero__meta-item">SHANGHAI · CN</span>
+        <span class="hero__meta-item">独立设计工作室</span>
+      </div>
+      <h1 class="hero__title">
+        <span class="hero__line"><span class="reveal-text">以形式</span></span>
+        <span class="hero__line"><span class="reveal-text"><em>构筑</em>意义</span></span>
+      </h1>
+      <div class="hero__bottom">
+        <p class="hero__desc reveal-up">
+          我们是一家专注于品牌识别、海报设计与编辑排版的独立平面设计工作室。<br>
+          相信形式即内容——每一个网格、每一处留白、每一次字距调整，都在传递信息。
+        </p>
+        <div class="hero__scroll" data-cursor="hover">
+          <span class="hero__scroll-text">向下滚动</span>
+          <span class="hero__scroll-line"></span>
+        </div>
+      </div>
+      <div class="hero__ticker">
+        <div class="ticker__track">
+          <span class="ticker__item">品牌识别</span><span class="ticker__dot">✦</span>
+          <span class="ticker__item">海报设计</span><span class="ticker__dot">✦</span>
+          <span class="ticker__item">编辑排版</span><span class="ticker__dot">✦</span>
+          <span class="ticker__item">字体设计</span><span class="ticker__dot">✦</span>
+          <span class="ticker__item">包装设计</span><span class="ticker__dot">✦</span>
+          <span class="ticker__item">品牌识别</span><span class="ticker__dot">✦</span>
+          <span class="ticker__item">海报设计</span><span class="ticker__dot">✦</span>
+          <span class="ticker__item">编辑排版</span><span class="ticker__dot">✦</span>
+          <span class="ticker__item">字体设计</span><span class="ticker__dot">✦</span>
+          <span class="ticker__item">包装设计</span><span class="ticker__dot">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Intro / Manifesto ============ -->
+    <section class="manifesto">
+      <div class="manifesto__label reveal-up">— 设计宣言</div>
+      <p class="manifesto__text">
+        <span class="reveal-line">设计不是装饰，而是</span>
+        <span class="reveal-line"><em>解决问题的过程</em>。</span>
+        <span class="reveal-line">我们用克制的形式、精确的</span>
+        <span class="reveal-line">排版与诚实的材料，</span>
+        <span class="reveal-line">为每一个品牌找到</span>
+        <span class="reveal-line">属于自己的<em>视觉语言</em>。</span>
+      </p>
+    </section>
+
+    <!-- ============ Works ============ -->
+    <section id="works" class="works">
+      <div class="works__header">
+        <div class="works__title-wrap">
+          <span class="works__label reveal-up">— 精选作品</span>
+          <h2 class="works__title reveal-up">Selected<br><em>Works</em></h2>
+        </div>
+        <div class="works__count reveal-up">
+          <span class="works__count-num" data-count="48">0</span>
+          <span class="works__count-label">个项目<br>2019—2026</span>
+        </div>
+      </div>
+
+      <div class="filter-bar reveal-up">
+        <button class="filter-btn active" data-filter="all" data-cursor="hover">全部 <span class="filter-btn__num">12</span></button>
+        <button class="filter-btn" data-filter="branding" data-cursor="hover">品牌识别 <span class="filter-btn__num">4</span></button>
+        <button class="filter-btn" data-filter="poster" data-cursor="hover">海报设计 <span class="filter-btn__num">3</span></button>
+        <button class="filter-btn" data-filter="editorial" data-cursor="hover">编辑排版 <span class="filter-btn__num">3</span></button>
+        <button class="filter-btn" data-filter="type" data-cursor="hover">字体设计 <span class="filter-btn__num">2</span></button>
+      </div>
+
+      <div class="works__grid" id="worksGrid">
+        <!-- Cards injected by JS -->
+      </div>
+    </section>
+
+    <!-- ============ Featured Project ============ -->
+    <section class="featured">
+      <div class="featured__label reveal-up">— 特别推介</div>
+      <div class="featured__main">
+        <div class="featured__visual reveal-up" data-parallax>
+          <div class="featured__visual-inner" data-cursor="view">
+            <span class="featured__visual-text">AETHER</span>
+            <span class="featured__visual-sub">BRAND IDENTITY · 2025</span>
+          </div>
+        </div>
+        <div class="featured__info">
+          <span class="featured__num reveal-up">/ 01</span>
+          <h3 class="featured__title reveal-up">Aether<em>Studio</em></h3>
+          <p class="featured__desc reveal-up">
+            为一家专注于数字艺术的新兴工作室打造的完整品牌识别系统。以"以太"为概念，通过极简的几何形态与克制的色彩，构建出一种既未来又克制的视觉气质。
+          </p>
+          <div class="featured__tags reveal-up">
+            <span>品牌识别</span>
+            <span>视觉系统</span>
+            <span>字体定制</span>
+          </div>
+          <div class="featured__stats reveal-up">
+            <div class="featured__stat">
+              <span class="featured__stat-num" data-count="6">0</span>
+              <span class="featured__stat-label">个月</span>
+            </div>
+            <div class="featured__stat">
+              <span class="featured__stat-num" data-count="42">0</span>
+              <span class="featured__stat-label">个交付物</span>
+            </div>
+            <div class="featured__stat">
+              <span class="featured__stat-num" data-count="1">0</span>
+              <span class="featured__stat-label">套定制字体</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section id="about" class="about">
+      <div class="about__grid">
+        <div class="about__left">
+          <span class="about__label reveal-up">— 关于工作室</span>
+          <h2 class="about__title reveal-up">我们相信<br><em>克制</em>的力量</h2>
+        </div>
+        <div class="about__right">
+          <p class="about__text reveal-up">
+            STUDIO FORM 成立于 2019 年，由两位设计师共同创立。我们专注于品牌识别、海报设计与编辑排版领域，与文化艺术机构、独立品牌及出版人合作。
+          </p>
+          <p class="about__text reveal-up">
+            我们的工作方法根植于瑞士国际主义平面设计传统，同时融合东方留白美学。每一个项目都从研究开始，以形式结束——我们相信好的设计应当是透明的，让内容自己说话。
+          </p>
+          <div class="about__stats">
+            <div class="about__stat reveal-up">
+              <span class="about__stat-num" data-count="7">0</span>
+              <span class="about__stat-label">年专业实践</span>
+            </div>
+            <div class="about__stat reveal-up">
+              <span class="about__stat-num" data-count="48">0</span>
+              <span class="about__stat-label">个完成项目</span>
+            </div>
+            <div class="about__stat reveal-up">
+              <span class="about__stat-num" data-count="23">0</span>
+              <span class="about__stat-label">位合作品牌</span>
+            </div>
+            <div class="about__stat reveal-up">
+              <span class="about__stat-num" data-count="11">0</span>
+              <span class="about__stat-label">项设计奖项</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Services ============ -->
+    <section id="services" class="services">
+      <div class="services__header">
+        <span class="services__label reveal-up">— 服务领域</span>
+        <h2 class="services__title reveal-up">What<br><em>We Do</em></h2>
+      </div>
+      <div class="services__list">
+        <div class="service-item reveal-up" data-cursor="hover">
+          <span class="service-item__num">01</span>
+          <h3 class="service-item__title">品牌识别系统</h3>
+          <p class="service-item__desc">从命名、标志到完整视觉语言，构建可持续生长的品牌系统。</p>
+          <span class="service-item__arrow">→</span>
+        </div>
+        <div class="service-item reveal-up" data-cursor="hover">
+          <span class="service-item__num">02</span>
+          <h3 class="service-item__title">海报与印刷物</h3>
+          <p class="service-item__desc">展览、活动与文化项目的海报设计及配套印刷物料。</p>
+          <span class="service-item__arrow">→</span>
+        </div>
+        <div class="service-item reveal-up" data-cursor="hover">
+          <span class="service-item__num">03</span>
+          <h3 class="service-item__title">书籍与编辑排版</h3>
+          <p class="service-item__desc">书籍、画册、杂志与目录的版式设计与出版统筹。</p>
+          <span class="service-item__arrow">→</span>
+        </div>
+        <div class="service-item reveal-up" data-cursor="hover">
+          <span class="service-item__num">04</span>
+          <h3 class="service-item__title">定制字体设计</h3>
+          <p class="service-item__desc">为品牌量身定制专属字体，从拉丁文到中文字形设计。</p>
+          <span class="service-item__arrow">→</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Marquee Big ============ -->
+    <section class="big-marquee">
+      <div class="big-marquee__track">
+        <span class="big-marquee__item">FORM</span>
+        <span class="big-marquee__star">✦</span>
+        <span class="big-marquee__item">FOLLOWS</span>
+        <span class="big-marquee__star">✦</span>
+        <span class="big-marquee__item">FUNCTION</span>
+        <span class="big-marquee__star">✦</span>
+        <span class="big-marquee__item">FORM</span>
+        <span class="big-marquee__star">✦</span>
+        <span class="big-marquee__item">FOLLOWS</span>
+        <span class="big-marquee__star">✦</span>
+        <span class="big-marquee__item">FUNCTION</span>
+        <span class="big-marquee__star">✦</span>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section id="contact" class="contact">
+      <span class="contact__label reveal-up">— 让我们合作</span>
+      <h2 class="contact__title">
+        <span class="reveal-line">有项目想要</span>
+        <span class="reveal-line"><em>一起创作?</em></span>
+      </h2>
+      <a href="mailto:hello@studioform.design" class="contact__email magnetic" data-cursor="hover" data-strength="0.3">
+        hello@studioform.design
+        <span class="contact__email-arrow">→</span>
+      </a>
+      <div class="contact__socials reveal-up">
+        <a href="#" data-cursor="hover">Instagram</a>
+        <a href="#" data-cursor="hover">Behance</a>
+        <a href="#" data-cursor="hover">站酷</a>
+        <a href="#" data-cursor="hover">微信公众号</a>
+      </div>
+    </section>
+
+    <!-- ============ Footer ============ -->
+    <footer class="footer">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__brand-mark">●</span>
+          STUDIO FORM
+        </div>
+        <div class="footer__back">
+          <a href="../../index.html" class="footer__back-link" data-cursor="hover">
+            返回 Showreel
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 STUDIO FORM. 保留所有权利。</span>
+        <span class="footer__time" id="footerTime">SHANGHAI — 00:00</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>
