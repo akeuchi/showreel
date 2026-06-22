@@ -18,21 +18,6 @@
 - Google Fonts（DM Sans、JetBrains Mono、Fraunces、Orbitron 等）
 - 响应式设计，适配桌面与移动端
 
-## 本地运行
+## 预览
 
-```bash
-# 克隆仓库
-git clone <repo-url>
-cd showreel
-
-# 直接用浏览器打开
-open index.html        # macOS
-start index.html       # Windows
-xdg-open index.html    # Linux
-```
-
-无需构建步骤，纯静态页面。
-
-## 许可证
-
-[MIT](LICENSE.txt) © 2026 Akeuchi
+https://akeuchi.github.io/showreel/
